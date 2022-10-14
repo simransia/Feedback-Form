@@ -132,19 +132,19 @@ function Form() {
 
                 <div className="section">
                     <div className='section-item'>
-                        <label htmlFor='name'><p className='para-text'>Customer Name</p> </label>
+                        <label htmlFor='name'><p className='para-text'>Customer Name<span>*</span></p></label>
                         <input placeholder='E.g. jon snow' id='name' value={name} onChange={e => setName(e.target.value)} />
                         {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.name}</span></p>}
                     </div>
                     <div className='section-item'>
-                        <label htmlFor='email'><p className='para-text'>Email</p> </label>
+                        <label htmlFor='email'><p className='para-text'>Email<span>*</span></p> </label>
                         <input placeholder='E.g. abc@gmail.com' id='email' value={email} onChange={e => setEmail(e.target.value)} />
                         {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.email}</span></p>}
                     </div>
                 </div>
                 <div className="section">
                     <div className='section-item'>
-                        <label htmlFor='email'><p className='para-text'>Phone</p> </label>
+                        <label htmlFor='email'><p className='para-text'>Phone<span>*</span></p> </label>
                         <PhoneInput
                             defaultCountry="IN"
                             placeholder="Enter phone number"
@@ -156,13 +156,13 @@ function Form() {
 
                 <div className="section">
                     <div className='section-item'>
-                        <p className='para-text'>Please rate the quality of the service you received from your host.</p>
+                        <p className='para-text'>Please rate the quality of the service you received from your host.<span>*</span></p>
                         <SelectSection name={"service"} isChecked={isCheckedOne} handleChange={handleCheck} />
                         {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.service}</span></p>}
                     </div>
 
                     <div className='section-item'>
-                        <p className='para-text'>Please rate the quality of your beverage. </p>
+                        <p className='para-text'>Please rate the quality of your beverage.<span>*</span> </p>
                         <SelectSection name={"beverage"} isChecked={isCheckedTwo} handleChange={handleCheck} />
                         {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.beverages}</span></p>}
                     </div>
@@ -170,20 +170,20 @@ function Form() {
 
                 <div className="section">
                     <div className='section-item'>
-                        <p className='para-text'>Was our restaurant clean?</p>
+                        <p className='para-text'>Was our restaurant clean?<span>*</span></p>
                         <SelectSection name={"cleanliness"} isChecked={isCheckedThree} handleChange={handleCheck} />
                         {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.cleanliness}</span></p>}
                     </div>
 
                     <div className='section-item'>
-                        <p className='para-text'>Please ratew your overall dining experience.</p>
+                        <p className='para-text'>Please ratew your overall dining experience.<span>*</span></p>
                         <SelectSection name={"overall"} isChecked={isCheckedFour} handleChange={handleCheck} />
                         {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.overall}</span></p>}
                     </div>
                 </div>
-               <div className='btn-container'>
-                 <button type='submit' className='btn btn-submit'>Submit Review</button>
-               </div>
+                <div className='btn-container'>
+                    <button type='submit' className='btn btn-submit'>Submit Review</button>
+                </div>
             </form>
         </div>
     )

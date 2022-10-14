@@ -6,7 +6,7 @@
     margin: 0 auto;
     padding: 30px 35px;
     border-radius: 4px;
-    position:relative;
+    position: relative;
 }
 
 .brand-name {
@@ -55,15 +55,19 @@
     margin-bottom: 15px;
 }
 
+.para-text span{
+    color:red;
+}
+
 .section {
     display: flex;
     justify-content: space-between;
-    margin-bottom:50px;
+    margin-bottom: 50px;
 }
 
 .section-item {
     min-width: calc(50% - 30px);
-    position:relative;
+    position: relative;
 }
 
 #name,
@@ -93,10 +97,11 @@
     box-shadow: 0.5px 0.5px 3px black;
     transition: all 0.3s;
 }
-.btn-submit{
+
+.btn-submit {
     position: absolute;
-    left:50%;
-    bottom:35px;
+    left: 50%;
+    bottom: 35px;
     transform: translateX(-50%);
 }
 
@@ -107,19 +112,22 @@
     background-color: white;
     box-shadow: 1px 1px 5px black;
 }
-.error-item{
-    padding-top:10px;
-    color:red;
-    font-size:14px;
+
+.error-item {
+    padding-top: 10px;
+    color: red;
+    font-size: 14px;
     display: flex;
-    align-items:center ;
+    align-items: center;
     position: absolute;
-    bottom:-25px;
+    bottom: -25px;
     left: 0;
 }
-.error-item svg{
-    height:17px;
+
+.error-item svg {
+    height: 17px;
 }
-.error-item span{
-    margin-left:8px;
+
+.error-item span {
+    margin-left: 8px;
 }

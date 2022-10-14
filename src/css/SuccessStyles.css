@@ -1,5 +1,5 @@
 .success-message {
-  width:38%;
+  width: 38%;
   height: 52%;
   padding: 32px;
   background-color: white;
@@ -55,9 +55,11 @@
     stroke-dashoffset: 0;
   }
 }
-.btn-success:last-child{
+
+.btn-success:last-child {
   margin-left: 20px;
 }
-.btn-success{
-  width:190px;
+
+.btn-success {
+  width: 190px;
 }
