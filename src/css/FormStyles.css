@@ -1,0 +1,125 @@
+.form {
+    max-width: 1200px;
+    width: 86%;
+    height: 85%;
+    background-color: white;
+    margin: 0 auto;
+    padding: 30px 35px;
+    border-radius: 4px;
+    position:relative;
+}
+
+.brand-name {
+    color: white;
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1px #9B1FE8;
+    font-size: 25px;
+}
+
+.brand-name::before {
+    content: "Aromatic Bar";
+    letter-spacing: 1px;
+    color: #9B1FE8;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    border-right: 3px solid #9B1FE8;
+    animation: silde 1.3s linear forwards;
+    -webkit-animation: slide 1.3s linear forwards;
+}
+
+@keyframes slide {
+    0% {
+        width: 0%;
+        border-right: 3px solid #9B1FE8;
+    }
+
+    98% {
+        width: 100%;
+        border-right: 3px solid #9B1FE8;
+    }
+
+    100% {
+        border-right: 0px;
+    }
+}
+
+.para-text {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:50px;
+}
+
+.section-item {
+    min-width: calc(50% - 30px);
+    position:relative;
+}
+
+#name,
+#email,
+.PhoneInputInput {
+    width: 100%;
+    padding: 8px 5px;
+}
+
+.PhoneInputCountry {
+    border: 1px solid rgb(118, 118, 118);
+    padding: 0 5px;
+    border-radius: 2px;
+}
+
+::placeholder {
+    font-size: 14px;
+}
+
+.btn {
+    padding: 10px 16px;
+    font-size: 17px;
+    background-color: #9B1FE8;
+    border: none;
+    color: white;
+    border-radius: 3px;
+    box-shadow: 0.5px 0.5px 3px black;
+    transition: all 0.3s;
+}
+.btn-submit{
+    position: absolute;
+    left:50%;
+    bottom:35px;
+    transform: translateX(-50%);
+}
+
+.btn:hover {
+    border: 2px solid #9B1FE8;
+    color: #9B1FE8;
+    font-weight: bold;
+    background-color: white;
+    box-shadow: 1px 1px 5px black;
+}
+.error-item{
+    padding-top:10px;
+    color:red;
+    font-size:14px;
+    display: flex;
+    align-items:center ;
+    position: absolute;
+    bottom:-25px;
+    left: 0;
+}
+.error-item svg{
+    height:17px;
+}
+.error-item span{
+    margin-left:8px;
+}

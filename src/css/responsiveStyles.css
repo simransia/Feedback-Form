@@ -1,0 +1,93 @@
+@media (max-width:1250px) {
+    .form {
+        width: 90%;
+        height: 90%;
+    }
+
+    .section-item {
+        min-width: calc(50% - 50px);
+    }
+
+    .para-text {
+        width: 95%;
+    }
+
+    .label-value {
+        left: 25px;
+        font-size: 15px;
+    }
+
+    .success-message {
+        width: 40%;
+        height: 60%;
+    }
+
+    .btn-success {
+        width: auto;
+    }
+}
+
+@media (max-width:900px) {
+    .container {
+        padding: 20px;
+        height: 140vh;
+    }
+
+    .success-message {
+        width: 60%;
+        height: 70%;
+    }
+
+    .sucess-btn-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .btn-success:last-child {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+
+    .btn-success {
+        width: 190px;
+    }
+
+    .form {
+        width: 100%;
+        height: auto;
+    }
+
+    .section {
+        display: block;
+        margin-bottom: 0px;
+    }
+
+    .section-item {
+        margin-bottom: 50px;
+        min-width: 100%;
+    }
+
+    .label-value {
+        left: 30px;
+        font-size: 15px;
+    }
+  
+    .btn-container{
+        height:60px;
+         position: relative;
+     }
+     .btn-submit{
+        bottom:10px;
+    }
+    
+}
+
+@media (max-width:600px) {
+    .success-message {
+        width:75%;
+        height: 55%;
+    }
+}

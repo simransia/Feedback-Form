@@ -1,0 +1,61 @@
+
+.select-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .select-item {
+    position: relative;
+    width: calc(100% / 4 - 20px);
+    cursor: pointer;
+  }
+  
+  .select-item input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+  
+  .checkmark {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+  }
+  
+  .label-value {
+    position: absolute;
+    left: 35px;
+  }
+  
+  .select-item:hover input~.checkmark {
+    background-color: #ccc;
+  }
+  
+  .select-item input:checked~.checkmark {
+    background-color: #9B1FE8;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .select-item input:checked~.checkmark:after {
+    display: block;
+  }
+  
+  .select-item .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 3px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
