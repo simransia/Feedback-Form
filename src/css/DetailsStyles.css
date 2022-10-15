@@ -2,3 +2,15 @@
     padding: 20px;
     height: 100%;
 }
+th{
+    background-color:#dcc7e9 !important;
+    font-weight:bold !important;
+}
+
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked{
+  color:#9B1FE8 !important;
+}
+
+.tss-1akey0g-MUIDataTableHeadCell-data {
+    font-weight:bold;
+}

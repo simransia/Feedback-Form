@@ -13,8 +13,7 @@ function Success() {
   }
 
   return (
-    <div className='container'>
-
+    <div className='container success'>
       <div className='success-message'>
         <div className='done-icon'>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">

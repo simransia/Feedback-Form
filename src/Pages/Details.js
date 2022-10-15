@@ -65,7 +65,7 @@ function Details() {
     },
     {
       name: "overall",
-      label: "Feedback For Overall",
+      label: "Overall Feedback",
       options: {
         filter: true,
         sort: false,
