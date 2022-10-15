@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import '../css/FormStyles.css'
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 
+//getting data from local storage
 const getData = () => {
     const data = localStorage.getItem('data');
     if (data) {
@@ -81,6 +82,7 @@ function Form() {
         const error = {};
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
         const phoneRegex = /^\+[1-9]{1}[0-9]{1,14}$/;
+
         if (!name) {
             error.name = "Username is required!";
         }
@@ -106,9 +108,7 @@ function Form() {
         if (!overall) {
             error.overall = "This feedback is required!";
         }
-
         return error;
-
     };
 
     //navigating to success page 
