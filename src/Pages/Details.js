@@ -9,7 +9,7 @@ function Details() {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('data'));
-    if (data) {
+    if (data.length !== 0) {
       setItems(data);
     }
   }, [])

@@ -16,6 +16,7 @@ const getData = () => {
     }
 }
 
+
 function Form() {
 
     const navigate = useNavigate();
@@ -26,25 +27,28 @@ function Form() {
     const [phone, setPhone] = useState();
 
     const [details, setDetails] = useState(getData());
-    const [errors, setErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [errors, setErrors] = useState({});
     const [displayError, setDisplayError] = useState(false);
 
     const handleChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
 
-        if (e.target.name == "service") {
-            setFeedback({ ...feedback, [e.target.name]: e.target.value })
+        if (name == "service") {
+            setFeedback({ ...feedback, [name]: value })
 
-        } else if (e.target.name == "beverages") {
-            setFeedback({ ...feedback, [e.target.name]: e.target.value })
+        } else if (name == "beverages") {
+            setFeedback({ ...feedback, [name]: value })
 
-        } else if (e.target.name == "cleanliness") {
-            setFeedback({ ...feedback, [e.target.name]: e.target.value })
+        } else if (name == "cleanliness") {
+            setFeedback({ ...feedback, [name]: value })
 
-        } else if (e.target.name == "overall") {
-            setFeedback({ ...feedback, [e.target.name]: e.target.value })
+        } else if (name == "overall") {
+            setFeedback({ ...feedback, [name]: value })
+
         } else {
-            setFeedback({ ...feedback, [e.target.name]: e.target.value })
+            setFeedback({ ...feedback, [name]: value })
         }
     }
 
@@ -61,16 +65,13 @@ function Form() {
             cleanliness,
             overall
         }
-        console.log(Object.keys(errors).length === 0 && Object.keys(data).length === 7)
-        console.log(Object.values(data))
-        if (Object.keys(errors).length === 0 && Object.values(data).length === 7) {
+
+        if (Object.keys(errors).length === 0) {
             setDetails([...details, data]);
-            console.log(details)
-
-
-            navigate('/success');
+            setIsSubmit(true);
         } else {
             setDisplayError(true)
+            setIsSubmit(false);
         }
     }
 
@@ -109,6 +110,13 @@ function Form() {
         return error;
 
     };
+
+    //navigating to success page 
+    useEffect(() => {
+        if (isSubmit) {
+            navigate('/success');
+        }
+    }, [isSubmit])
 
     //setting errors
     useEffect(() => {
