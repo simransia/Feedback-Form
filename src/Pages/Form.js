@@ -38,40 +38,43 @@ function Form() {
     const [details, setDetails] = useState(getData());
     const [errors, setErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    const [displayError, setDisplayError] = useState(false);
 
     const handleCheck = (position, e) => {
 
         if (e.target.name == "service") {
-            hmm(isCheckedOne, setIsCheckedOne, position);
+            handleSelect(isCheckedOne, setIsCheckedOne, position);
             setService(e.target.value)
 
         } else if (e.target.name == "beverage") {
-            hmm(isCheckedTwo, setIsCheckedTwo, position);
+            handleSelect(isCheckedTwo, setIsCheckedTwo, position);
             setBeverages(e.target.value)
 
         } else if (e.target.name == "cleanliness") {
-            hmm(isCheckedThree, setIsCheckedThree, position);
+            handleSelect(isCheckedThree, setIsCheckedThree, position);
             setCleanliness(e.target.value)
 
         } else if (e.target.name == "overall") {
-            hmm(isCheckedFour, setIsCheckedFour, position);
+            handleSelect(isCheckedFour, setIsCheckedFour, position);
             setOverall(e.target.value)
         }
 
     };
 
-    const hmm = (checkedArr, setcheckedArr, position) => {
+    const handleSelect = (checkedArr, setcheckedArr, position) => {
         const updatedCheckedState = checkedArr.map((item, index) => index === position ? !item : item = false)
         setcheckedArr(updatedCheckedState);
     }
 
-
+//handling form submit
     const handleFormSubmit = (e) => {
         e.preventDefault();
         let data = { name, email, phone, service, beverages, cleanliness, overall }
+        let submit = true;
 
-        if (Object.keys(errors).length === 0) {
+        if (Object.keys(errors).length === 0 && submit) {
             setDetails([...details, data]);
+            console.log("calling inside")
             setName('');
             setEmail('');
             setPhone('');
@@ -80,12 +83,12 @@ function Form() {
             setIsCheckedThree(boolArray);
             setIsCheckedFour(boolArray);
             navigate('/success');
-            console.log("called")
         } else {
-            setIsSubmit(true)
+            setDisplayError(true)
         }
     }
-
+    console.log(details)
+    //handling errors
     const validate = () => {
         const error = {};
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -115,14 +118,22 @@ function Form() {
         }
 
         return error;
+
     };
+
+    //setting errors
     useEffect(() => {
         setErrors(validate())
+        localStorage.removeItem('data')
     }, [name, email, phone, service, beverages, cleanliness, overall])
 
     // saving data to local storage
     useEffect(() => {
         localStorage.setItem('data', JSON.stringify(details));
+
+        console.log(localStorage.getItem('data'))
+        console.log(details)
+        console.log("calling useEffect")
     }, [details])
 
     return (
@@ -134,12 +145,12 @@ function Form() {
                     <div className='section-item'>
                         <label htmlFor='name'><p className='para-text'>Customer Name<span>*</span></p></label>
                         <input placeholder='E.g. jon snow' id='name' value={name} onChange={e => setName(e.target.value)} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.name}</span></p>}
+                        {displayError && errors.name && <p className='error-item'><ErrorOutlineIcon /><span>{errors.name}</span></p>}
                     </div>
                     <div className='section-item'>
                         <label htmlFor='email'><p className='para-text'>Email<span>*</span></p> </label>
                         <input placeholder='E.g. abc@gmail.com' id='email' value={email} onChange={e => setEmail(e.target.value)} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.email}</span></p>}
+                        {displayError && errors.email && <p className='error-item'><ErrorOutlineIcon /><span>{errors.email}</span></p>}
                     </div>
                 </div>
                 <div className="section">
@@ -150,7 +161,7 @@ function Form() {
                             placeholder="Enter phone number"
                             value={phone}
                             onChange={setPhone} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.phone}</span></p>}
+                        {displayError&& errors.phone && <p className='error-item'><ErrorOutlineIcon /><span>{errors.phone}</span></p>}
                     </div>
                 </div>
 
@@ -158,13 +169,13 @@ function Form() {
                     <div className='section-item'>
                         <p className='para-text'>Please rate the quality of the service you received from your host.<span>*</span></p>
                         <SelectSection name={"service"} isChecked={isCheckedOne} handleChange={handleCheck} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.service}</span></p>}
+                        {displayError && errors.service && <p className='error-item'><ErrorOutlineIcon /><span>{errors.service}</span></p>}
                     </div>
 
                     <div className='section-item'>
                         <p className='para-text'>Please rate the quality of your beverage.<span>*</span> </p>
                         <SelectSection name={"beverage"} isChecked={isCheckedTwo} handleChange={handleCheck} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.beverages}</span></p>}
+                        {displayError && errors.beverages && <p className='error-item'><ErrorOutlineIcon /><span>{errors.beverages}</span></p>}
                     </div>
                 </div>
 
@@ -172,13 +183,13 @@ function Form() {
                     <div className='section-item'>
                         <p className='para-text'>Was our restaurant clean?<span>*</span></p>
                         <SelectSection name={"cleanliness"} isChecked={isCheckedThree} handleChange={handleCheck} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.cleanliness}</span></p>}
+                        {displayError && errors.cleanliness && <p className='error-item'><ErrorOutlineIcon /><span>{errors.cleanliness}</span></p>}
                     </div>
 
                     <div className='section-item'>
                         <p className='para-text'>Please ratew your overall dining experience.<span>*</span></p>
                         <SelectSection name={"overall"} isChecked={isCheckedFour} handleChange={handleCheck} />
-                        {isSubmit && <p className='error-item'><ErrorOutlineIcon /><span>{errors.overall}</span></p>}
+                        {displayError && errors.overall && <p className='error-item'><ErrorOutlineIcon /><span>{errors.overall}</span></p>}
                     </div>
                 </div>
                 <div className='btn-container'>
