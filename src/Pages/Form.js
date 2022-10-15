@@ -66,15 +66,23 @@ function Form() {
         setcheckedArr(updatedCheckedState);
     }
 
-//handling form submit
+    //handling form submit
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        let data = { name, email, phone, service, beverages, cleanliness, overall }
-        let submit = true;
-
-        if (Object.keys(errors).length === 0 && submit) {
+        let data = {
+            name,
+            email,
+            phone,
+            service,
+            beverages,
+            cleanliness,
+            overall
+        }
+        console.log(Object.keys(errors).length === 0 && Object.keys(data).length === 7)
+        console.log(Object.values(data))
+        if (Object.keys(errors).length === 0 && Object.values(data).length === 7) {
             setDetails([...details, data]);
-            console.log("calling inside")
+            console.log(details)
             setName('');
             setEmail('');
             setPhone('');
@@ -87,22 +95,24 @@ function Form() {
             setDisplayError(true)
         }
     }
-    console.log(details)
+   
     //handling errors
     const validate = () => {
         const error = {};
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+        const phoneRegex = /^\+[1-9]{1}[0-9]{1,14}$/;
         if (!name) {
             error.name = "Username is required!";
         }
         if (!email) {
             error.email = "Email is required!";
-        } else if (!regex.test(email)) {
+        } else if (!emailRegex .test(email)) {
             error.email = "This is not a valid email format!";
         }
         if (phone === undefined) {
             error.phone = "Phone Number is required";
+        }else if (!phoneRegex .test(phone) || phone.length < 10) {
+            error.phone = "Please enter a valid phone number";
         }
         if (!service) {
             error.service = "This feedback is required!";
@@ -124,15 +134,12 @@ function Form() {
     //setting errors
     useEffect(() => {
         setErrors(validate())
-        localStorage.removeItem('data')
+
     }, [name, email, phone, service, beverages, cleanliness, overall])
 
     // saving data to local storage
     useEffect(() => {
         localStorage.setItem('data', JSON.stringify(details));
-
-        console.log(localStorage.getItem('data'))
-        console.log(details)
         console.log("calling useEffect")
     }, [details])
 
@@ -161,7 +168,7 @@ function Form() {
                             placeholder="Enter phone number"
                             value={phone}
                             onChange={setPhone} />
-                        {displayError&& errors.phone && <p className='error-item'><ErrorOutlineIcon /><span>{errors.phone}</span></p>}
+                        {displayError && errors.phone && <p className='error-item'><ErrorOutlineIcon /><span>{errors.phone}</span></p>}
                     </div>
                 </div>
 
