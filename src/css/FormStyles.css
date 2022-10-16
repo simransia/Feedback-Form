@@ -1,7 +1,7 @@
 .form {
     max-width: 1200px;
     width: 86%;
-    height: 85%;
+    height:90%;
     background-color: white;
     margin: 0 auto;
     padding: 30px 35px;
@@ -17,6 +17,15 @@
     letter-spacing: 1px;
     -webkit-text-stroke: 1px #9B1FE8;
     font-size: 25px;
+}
+.description{
+    text-align: center;
+    width:75%;
+    margin:0 auto;
+    font-size:17px;
+    letter-spacing:1.5px;
+    margin-bottom:40px;
+    color:#6C757D;
 }
 
 .brand-name::before {
@@ -101,7 +110,7 @@
 .btn-submit {
     position: absolute;
     left: 50%;
-    bottom: 35px;
+    bottom:20px;
     transform: translateX(-50%);
 }
 

@@ -134,7 +134,10 @@ function Form() {
         <div className='container'>
             <form className='form' onSubmit={handleFormSubmit}>
                 <h2 className='brand-name'>Aromatic Bar</h2>
-
+                <p className='description'>We are committed to providing you with the best
+                    dining experience possible, so we welcome your comments. Please fill
+                    out this questionnaire. Thank you!
+                </p>
                 <div className="section">
                     <div className='section-item'>
                         <label htmlFor='name'><p className='para-text'>Customer Name<span>*</span></p></label>
@@ -181,7 +184,7 @@ function Form() {
                     </div>
 
                     <div className='section-item'>
-                        <p className='para-text'>Please ratew your overall dining experience.<span>*</span></p>
+                        <p className='para-text'>Please rate your overall dining experience.<span>*</span></p>
                         <SelectSection name={"overall"} handleOnChange={handleChange} />
                         {displayError && errors.overall && <p className='error-item'><ErrorOutlineIcon /><span>{errors.overall}</span></p>}
                     </div>

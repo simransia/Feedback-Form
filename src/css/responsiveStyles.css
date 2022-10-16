@@ -1,7 +1,7 @@
 @media (max-width:1250px) {
     .form {
         width: 90%;
-        height: 90%;
+        height: 95%;
     }
 
     .section-item {
@@ -27,10 +27,21 @@
     }
 }
 
-@media (max-width:900px) {
+@media (max-width:1000px) {
     .container {
         padding: 30px 20px;
-        height: 140vh;
+        height: 148vh;
+    }
+
+    .form {
+        width: 100%;
+        margin-top: 30px;
+        height: 100%;
+    }
+
+    .description {
+        width: 80%;
+        font-size: 16px;
     }
 
     .success-message {
@@ -55,11 +66,6 @@
         width: 190px;
     }
 
-    .form {
-        width: 100%;
-        height: auto;
-    }
-
     .section {
         display: block;
         margin-bottom: 0px;
@@ -76,12 +82,12 @@
     }
 
     .btn-container {
-        height: 60px;
+        height: 50px;
         position: relative;
     }
 
     .btn-submit {
-        bottom: 10px;
+        bottom: 15px;
     }
 
     .success {
@@ -90,10 +96,16 @@
 
 }
 
-@media (max-width:600px) {
+@media (max-width:650px) {
     .container {
-        padding: 30px 20px;
+        padding: 10px 20px;
         height: 190vh;
+    }
+
+    .description {
+        width: 90%;
+        font: size 15px;
+        ;
     }
 
     .success {
@@ -101,7 +113,7 @@
     }
 
     .success-message {
-        width: 90%;
+        width: 92%;
         height: 70%;
     }
 
